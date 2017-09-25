@@ -1,0 +1,15 @@
+<Project>
+  <PropertyGroup>
+    <MajorVersion>0</MajorVersion>
+    <MinorVersion>1</MinorVersion>
+    <PatchVersion>0</PatchVersion>
+    <VersionLabel>alpha</VersionLabel>
+  </PropertyGroup>
+
+  <PropertyGroup>
+    <Authors>Niklas Werner (NW55)</Authors>
+    <Copyright>Copyright © Niklas Werner 2017</Copyright>
+    <TargetFramework>netstandard1.4</TargetFramework>
+    <Company />
+  </PropertyGroup>
+</Project>

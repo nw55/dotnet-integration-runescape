@@ -1,0 +1,10 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <Import Project="..\..\common.props" />
+
+  <PropertyGroup>
+    <RootNamespace>NW55.Integration.RuneScape</RootNamespace>
+    <Description>NW55 Integration Classes for RuneScape</Description>
+  </PropertyGroup>
+
+  <Import Project="..\..\common.targets" />
+</Project>

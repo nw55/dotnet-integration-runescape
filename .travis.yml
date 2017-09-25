@@ -1,0 +1,7 @@
+language: csharp
+solution: common.sln
+dist: trusty
+dotnet: 1.0.4
+mono: none
+script:
+  - ./build.sh
