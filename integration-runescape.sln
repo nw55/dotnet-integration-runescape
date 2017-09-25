@@ -5,6 +5,21 @@ VisualStudioVersion = 15.0.26730.16
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NW55.Integration.RuneScape", "src\NW55.Integration.RuneScape\NW55.Integration.RuneScape.csproj", "{A6215711-3EF5-4CF7-82EB-F676D835D0E9}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{6C59A9DB-A21C-4323-84F2-0D2B335DE1D4}"
+	ProjectSection(SolutionItems) = preProject
+		.gitignore = .gitignore
+		.travis.yml = .travis.yml
+		appveyor.yml = appveyor.yml
+		build.ps1 = build.ps1
+		build.sh = build.sh
+		common.props = common.props
+		common.targets = common.targets
+		LICENSE = LICENSE
+		README.md = README.md
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{BB638C07-3160-472A-8454-31E67C96C595}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -18,6 +33,9 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{A6215711-3EF5-4CF7-82EB-F676D835D0E9} = {BB638C07-3160-472A-8454-31E67C96C595}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {37FB5ABC-8A93-4222-9D4B-06356C5BA7EC}
