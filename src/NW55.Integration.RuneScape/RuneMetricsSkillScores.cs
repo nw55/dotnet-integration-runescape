@@ -31,13 +31,21 @@ namespace NW55.Integration.RuneScape
 
         public class Entry
         {
-            public int Id { get; set; }
+            public Entry(int id, int level, long xp, int? rank)
+            {
+                Id = id;
+                Level = level;
+                XP = xp;
+                Rank = rank;
+            }
 
-            public int Level { get; set; }
+            public int Id { get; }
 
-            public long XP { get; set; }
+            public int Level { get; }
 
-            public int? Rank { get; set; }
+            public long XP { get; }
+
+            public int? Rank { get; }
         }
     }
 }

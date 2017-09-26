@@ -4,7 +4,8 @@
     {
         NoError = 0,
         NoProfile = 1,
-        NotAMember = 2,
-        PrivateProfile = 3
+        NoMember = 2,
+        PrivateProfile = 3,
+        UnknownError = -1
     }
 }

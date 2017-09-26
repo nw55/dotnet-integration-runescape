@@ -2,9 +2,9 @@
 
 namespace NW55.Integration.RuneScape
 {
-    public class Activity
+    public class AdventurersLogActivity
     {
-        public Activity(DateTime date, string text, string details)
+        public AdventurersLogActivity(DateTime date, string text, string details)
         {
             Date = date;
             Text = text;
