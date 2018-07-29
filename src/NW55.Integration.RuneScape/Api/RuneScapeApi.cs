@@ -4,7 +4,7 @@ using System.Text;
 
 namespace NW55.Integration.RuneScape.Api
 {
-    public abstract class RuneScapeApi<TParameter, TResult>
+    public abstract class RuneScapeApi
     {
         public const string ServicesBaseUri = "http://services.runescape.com";
         public const string AppsBaseUri = "https://apps.runescape.com";
@@ -17,9 +17,5 @@ namespace NW55.Integration.RuneScape.Api
         public static RuneMetricsProfileApi RuneMetricsProfile { get; } = new RuneMetricsProfileApi();
 
         public virtual Encoding OverrideResponseEncoding => null;
-
-        public abstract string GetUri(TParameter parameter);
-        
-        public abstract TResult ParseResult(TParameter parameter, string rawResponse);
     }
 }
