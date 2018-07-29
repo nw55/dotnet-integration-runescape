@@ -54,12 +54,12 @@ namespace NW55.Integration.RuneScape.Api
             return $"{ServicesBaseUri}/m=clan-hiscores/members_lite.ws?clanName={clanName}";
         }
 
-        public override IList<ClanMember> ParseResult(string clanName, string responseText)
+        public IList<ClanMember> ParseResult(string rawResponse)
         {
-            if (responseText == null)
+            if (rawResponse == null)
                 return null;
 
-            string[] lines = responseText.Split(new char[] { '\n' }, StringSplitOptions.RemoveEmptyEntries);
+            string[] lines = rawResponse.Split(new char[] { '\n' }, StringSplitOptions.RemoveEmptyEntries);
             ClanMember[] members = new ClanMember[lines.Length - 1]; // skip first line (header)
             try
             {
@@ -80,5 +80,8 @@ namespace NW55.Integration.RuneScape.Api
             }
             return members;
         }
+
+        public override IList<ClanMember> ParseResult(string clanName, string rawResponse)
+            => ParseResult(rawResponse);
     }
 }

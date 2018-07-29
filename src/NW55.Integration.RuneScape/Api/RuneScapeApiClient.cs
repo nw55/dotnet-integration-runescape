@@ -8,29 +8,22 @@ using System.Threading.Tasks;
 
 namespace NW55.Integration.RuneScape.Api
 {
-    public class RuneScapeApiClient : IDisposable
+    public class RuneScapeApiClient
     {
-        HttpClient client;
+        HttpClient httpClient;
 
-        public RuneScapeApiClient()
+        public RuneScapeApiClient(HttpClient httpClient)
         {
-            HttpClientHandler handler = new HttpClientHandler();
-            handler.MaxConnectionsPerServer = 20;
-            client = new HttpClient(handler, true);
+            this.httpClient = httpClient;
         }
 
-        public void Dispose()
-        {
-            client.Dispose();
-        }
-
-        public async Task<TResult> Get<TParameter, TResult>(RuneScapeApi<TParameter, TResult> api, TParameter parameter)
+        public async Task<string> GetRaw<TParameter, TResult>(RuneScapeApi<TParameter, TResult> api, TParameter parameter)
         {
             string uri = api.GetUri(parameter);
 
             string responseText;
 
-            using (HttpResponseMessage response = await client.GetAsync(uri))
+            using (var response = await httpClient.GetAsync(uri))
             {
                 if (response.StatusCode == HttpStatusCode.NotFound)
                 {
@@ -41,8 +34,8 @@ namespace NW55.Integration.RuneScape.Api
                     response.EnsureSuccessStatusCode();
                     if (api.OverrideResponseEncoding != null)
                     {
-                        using (Stream stream = await response.Content.ReadAsStreamAsync())
-                        using (StreamReader reader = new StreamReader(stream, api.OverrideResponseEncoding))
+                        using (var stream = await response.Content.ReadAsStreamAsync())
+                        using (var reader = new StreamReader(stream, api.OverrideResponseEncoding))
                             responseText = await reader.ReadToEndAsync();
                     }
                     else
@@ -51,6 +44,13 @@ namespace NW55.Integration.RuneScape.Api
                     }
                 }
             }
+
+            return responseText;
+        }
+
+        public async Task<TResult> Get<TParameter, TResult>(RuneScapeApi<TParameter, TResult> api, TParameter parameter)
+        {
+            string responseText = await GetRaw(api, parameter);
 
             return api.ParseResult(parameter, responseText);
         }

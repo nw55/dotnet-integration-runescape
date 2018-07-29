@@ -36,9 +36,9 @@ namespace NW55.Integration.RuneScape.Api
             return $"{AppsBaseUri}/runemetrics/profile/profile?user={parameters.PlayerName}&activities={parameters.ActivityCount}";
         }
 
-        public override Result ParseResult(Parameters parameters, string responseText)
+        public Result ParseResult(string rawResponse)
         {
-            ApiResult result = JsonConvert.DeserializeObject<ApiResult>(responseText);
+            ApiResult result = JsonConvert.DeserializeObject<ApiResult>(rawResponse);
 
             RuneMetricsError error = ParseError(result.Error);
             RuneMetricsProfile profile = null;
@@ -76,6 +76,9 @@ namespace NW55.Integration.RuneScape.Api
 
             return new Result(error, profile);
         }
+
+        public override Result ParseResult(Parameters parameters, string rawResponse)
+            => ParseResult(rawResponse);
 
         public class Parameters
         {

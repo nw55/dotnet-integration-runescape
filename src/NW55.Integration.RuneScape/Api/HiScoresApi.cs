@@ -10,7 +10,7 @@ namespace NW55.Integration.RuneScape.Api
         public override string GetUri(string playerName)
              => $"{ServicesBaseUri}/m=hiscore/index_lite.ws?player={playerName}";
 
-        public override HiScores ParseResult(string parameter, string responseText)
+        public HiScores ParseResult(string responseText)
         {
             if (responseText == null)
                 return null;
@@ -53,5 +53,8 @@ namespace NW55.Integration.RuneScape.Api
             }
             return new HiScores(entries);
         }
+
+        public override HiScores ParseResult(string parameter, string rawResponse)
+            => ParseResult(rawResponse);
     }
 }
