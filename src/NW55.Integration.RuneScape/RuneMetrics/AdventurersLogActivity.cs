@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace NW55.Integration.RuneScape
+namespace NW55.Integration.RuneScape.RuneMetrics
 {
     public class AdventurersLogActivity
     {
@@ -16,5 +16,10 @@ namespace NW55.Integration.RuneScape
         public string Text { get; }
 
         public string Details { get; }
+
+        public bool HasType(KnownActivityType type) => type.IsMatch(this);
+
+        public bool TryGetDetails<TDetails>(KnownDetailsActivityType<TDetails> type, out TDetails details)
+            => type.TryGetDetails(this, out details);
     }
 }

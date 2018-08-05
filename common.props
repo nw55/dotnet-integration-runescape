@@ -2,13 +2,13 @@
   <PropertyGroup>
     <MajorVersion>0</MajorVersion>
     <MinorVersion>2</MinorVersion>
-    <PatchVersion>1</PatchVersion>
+    <PatchVersion>2</PatchVersion>
     <VersionLabel>alpha</VersionLabel>
   </PropertyGroup>
 
   <PropertyGroup>
-    <Authors>Niklas Werner (NW55)</Authors>
-    <Copyright>Copyright © Niklas Werner 2017</Copyright>
+    <Authors>Niklas Werner (nw55)</Authors>
+    <Copyright>Copyright © Niklas Werner 2018</Copyright>
     <TargetFramework>netstandard2.0</TargetFramework>
     <Company />
   </PropertyGroup>

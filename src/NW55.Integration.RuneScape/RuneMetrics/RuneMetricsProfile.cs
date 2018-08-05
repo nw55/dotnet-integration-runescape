@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace NW55.Integration.RuneScape
+namespace NW55.Integration.RuneScape.RuneMetrics
 {
     public class RuneMetricsProfile
     {

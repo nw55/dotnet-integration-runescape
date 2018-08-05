@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 
-namespace NW55.Integration.RuneScape
+namespace NW55.Integration.RuneScape.RuneMetrics
 {
     public class RuneMetricsSkillScores : ISkillScores
     {
